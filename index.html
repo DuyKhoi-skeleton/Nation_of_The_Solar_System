@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Nation Of The Solar System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="ui-layer">
+            <!-- Stats Top Left -->
+            <div class="stats-top-left">
+                <div class="stat-row">📍 Map: <span id="ui-map-name" style="color:#00ffcc;">Trái Đất</span></div>
+                <div class="stat-row">⚔️ LV: <span id="ui-level">1</span></div>
+                <div class="bar-container">
+                    <div id="ui-hp-bar" class="bar hp"></div>
+                    <span class="bar-text" id="ui-hp-text">100/100</span>
+                </div>
+                <div class="bar-container">
+                    <div id="ui-exp-bar" class="bar exp"></div>
+                    <span class="bar-text" id="ui-exp-text">0/100</span>
+                </div>
+                <div class="stat-row">🪙 Coin: $<span id="ui-coin">0</span></div>
+                <div class="stat-row">🔥 ATK: <span id="ui-atk-val">0</span> | 🛡️ DEF: <span id="ui-def-val">0</span></div>
+                
+                <div class="menu-buttons">
+                    <button id="btn-open-shop">🏪 Shop (B)</button>
+                    <button id="btn-open-inv">🎒 Hành Trang (I)</button>
+                    <button id="btn-open-map">🪐 Chọn Map (M)</button>
+                </div>
+            </div>
+
+            <!-- Stats Top Right -->
+            <div class="stats-top-right">
+                <div>FPS: <span id="ui-fps">60</span></div>
+                <div>Ping: <span id="ui-ping">12</span>ms</div>
+            </div>
+
+            <button id="btn-respawn" class="hidden">💀 HỒI SINH TẠI TRÁI ĐẤT</button>
+
+            <!-- Modal Shop -->
+            <div id="shop-screen" class="modal-screen hidden">
+                <div class="modal-content">
+                    <h2>🏪 CỬA HÀNG KHÔNG GIAN</h2>
+                    <div class="shop-tabs">
+                        <button id="tab-skills" class="tab-btn active">Kỹ Năng</button>
+                        <button id="tab-upgrades" class="tab-btn">Nâng Cấp</button>
+                    </div>
+                    <div id="shop-items-container"></div>
+                    <button id="btn-close-shop" class="close-btn">Đóng (B / ESC)</button>
+                </div>
+            </div>
+
+            <!-- Modal Map Selector -->
+            <div id="map-screen" class="modal-screen hidden">
+                <div class="modal-content">
+                    <h2>🪐 HỆ MẶT TRỜI - CHỌN BẢN ĐỒ</h2>
+                    <div id="map-list-container"></div>
+                    <button id="btn-close-map" class="close-btn">Đóng (M / ESC)</button>
+                </div>
+            </div>
+
+            <!-- Modal Inventory -->
+            <div id="inventory-screen" class="modal-screen hidden">
+                <div class="modal-content">
+                    <h2>🎒 HÀNH TRANG</h2>
+                    <div id="equipment-stats">
+                        <p>⚔️ Vũ khí: <span id="inv-weapon-rank" class="rank-tag">D</span></p>
+                        <p>🛡️ Giáp trụ: <span id="inv-armor-rank" class="rank-tag">D</span></p>
+                    </div>
+                    <button id="btn-close-inv" class="close-btn">Đóng (I / ESC)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div id="mobile-controls">
+            <div id="joystick-zone">
+                <div id="joystick-base"><div id="joystick-stick"></div></div>
+            </div>
+            <div id="action-buttons">
+                <button class="action-btn attack" id="btn-atk">⚔️</button>
+                <button class="action-btn dash" id="btn-dash">💨</button>
+                <button class="action-btn skill" id="btn-skill-k">K</button>
+                <button class="action-btn skill" id="btn-skill-l">L</button>
+                <button class="action-btn skill" id="btn-skill-o">O</button>
+                <button class="action-btn skill" id="btn-skill-p">P</button>
+                <button class="action-btn skill" id="btn-skill-u">U</button>
+                <button class="action-btn skill" id="btn-skill-i">J</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="chunk.js"></script>
+    <script src="save.js"></script>
+    <script src="enemy.js"></script>
+    <script src="player.js"></script>
+    <script src="ui.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
